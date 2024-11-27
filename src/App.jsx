@@ -9,8 +9,11 @@ const cryptoRowLimit = 25; // max number of crypto rows we want
 export const App = () => {
   const [crypto, setCrypto] = useState(null);
   const [currencies, setCurrencies] = useState(null);
+  const [loading, setLoading] = useState(true); // default to true as we'll be loading as soon as we mount the component
+  const [error, setError] = useState(null);
 
   useEffect(() => {
+    setLoading(true);
     const fetchData = async () => {
       try {
         // fetch both URLs at the same time
@@ -27,12 +30,25 @@ export const App = () => {
         setCrypto(await cryptoRes.json());
         setCurrencies(await currencyRes.json());
       } catch (err) {
-        console.error(err);
+        setError(
+          typeof err.message === "string" ? err.message : "Unknown error"
+        );
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchData();
   }, []);
+
+  // early return if we're loading or hit an error
+  if (loading) {
+    return <p>Loading....</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
 
   return (
     <main>
