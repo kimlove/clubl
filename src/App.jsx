@@ -43,11 +43,7 @@ export const App = () => {
     fetchData();
   }, []);
 
-  // early return if we're loading or hit an error
-  if (loading) {
-    return <p>Loading....</p>;
-  }
-
+  // early return if we hit an error
   if (error) {
     return <p>Error: {error}</p>;
   }
@@ -58,7 +54,9 @@ export const App = () => {
         <h3>Displaying the Top 25 Crypto Currencies</h3>
       </header>
 
-      {crypto && currencies ? (
+      {loading ? <p className="loading fade-in">Loading....</p> : null}
+
+      {!loading && crypto && currencies ? (
         <RankedCryptoTable crypto={crypto} currencies={currencies} />
       ) : null}
     </main>

@@ -26,7 +26,7 @@ export const RankedCryptoTable = ({ crypto, currencies }) => {
   return (
     <>
       {sortedCrypto ? (
-        <table className="top-crypto" cellSpacing={0} cellPadding={0}>
+        <table className="top-crypto fade-in" cellSpacing={0} cellPadding={0}>
           <thead>
             <tr>
               <th className="rank">

@@ -39,6 +39,10 @@ header h3 {
   margin: 0;
 }
 
+.loading {
+  text-align: center;
+}
+
 /* style results table */
 
 .top-crypto {
@@ -149,4 +153,17 @@ header h3 {
 
 .top-crypto td.change--neg {
   color: #c00;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
