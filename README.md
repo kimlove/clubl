@@ -39,6 +39,7 @@ _Note: This assumes you have [Node.js](https://nodejs.org/en) installed._
 - Display on mobile could be improved
 - Number of crypto currencies could defined / updated by the user (rather than hardcoded)
 - The UI look and feel could be more interesting
+- Some elements would be way better as reusable sub-components to avoid repetition (i.e. table header buttons)
 
 ## Future Improvements
 
