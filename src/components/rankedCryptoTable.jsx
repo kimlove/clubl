@@ -32,26 +32,64 @@ export const RankedCryptoTable = ({ crypto, currencies }) => {
               <th>
                 <button type="button" onClick={() => handleSort("rank")}>
                   Rank
+                  <span className="arrow">
+                    {sortBy.column === "rank"
+                      ? sortBy.order === "ASC"
+                        ? "↑"
+                        : "↓"
+                      : ""}
+                  </span>
                 </button>
               </th>
               <th>
                 <button type="button" onClick={() => handleSort("id")}>
                   ID
+                  <span className="arrow">
+                    {sortBy.column === "id"
+                      ? sortBy.order === "ASC"
+                        ? "↑"
+                        : "↓"
+                      : ""}
+                  </span>
                 </button>
               </th>
               <th>
                 <button type="button" onClick={() => handleSort("symbol")}>
                   Symbol
+                  <span className="arrow">
+                    {sortBy.column === "symbol"
+                      ? sortBy.order === "ASC"
+                        ? "↑"
+                        : "↓"
+                      : ""}
+                  </span>
                 </button>
               </th>
               <th>
                 <button type="button" onClick={() => handleSort("price")}>
                   Price
+                  <span className="arrow">
+                    {sortBy.column === "price"
+                      ? sortBy.order === "ASC"
+                        ? "↑"
+                        : "↓"
+                      : ""}
+                  </span>
                 </button>
               </th>
               <th>
-                <button type="button" onClick={() => handleSort("price")}>
+                <button
+                  type="button"
+                  onClick={() => handleSort("changePercent24Hr")}
+                >
                   24hr Change
+                  <span className="arrow">
+                    {sortBy.column === "changePercent24Hr"
+                      ? sortBy.order === "ASC"
+                        ? "↑"
+                        : "↓"
+                      : ""}
+                  </span>
                 </button>
               </th>
             </tr>
