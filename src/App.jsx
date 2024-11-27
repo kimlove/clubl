@@ -27,7 +27,7 @@ export const App = () => {
           throw new Error("Failed to fetch one or more resources");
         }
 
-        setCrypto(await cryptoRes.json());
+        setCrypto((await cryptoRes.json()).data.slice(0, cryptoRowLimit));
         setCurrencies(await currencyRes.json());
       } catch (err) {
         setError(
