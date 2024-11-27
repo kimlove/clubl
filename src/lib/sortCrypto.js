@@ -6,7 +6,7 @@ export const sortCrypto = (data, column, order) => {
     let bVal = column === "price" ? parseFloat(b.priceUsd) : b[column];
 
     // treat id and rank as numbers so we can sort correctly
-    if (column === "id" || column === "rank") {
+    if (column === "rank") {
       aVal = parseFloat(aVal);
       bVal = parseFloat(bVal);
     }

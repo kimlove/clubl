@@ -12,9 +12,16 @@ export const RankedCryptoTable = ({ crypto, currencies }) => {
 
   useEffect(() => {
     setSortedCrypto(sortCrypto(crypto, sortBy.column, sortBy.order));
-  }, []);
+  }, [sortBy]);
 
   const { GBP, EUR, AED } = currencies.rates; // destructure currency rates and just grab the ones we need
+
+  const handleSort = (column) => {
+    setSortBy((prev) => ({
+      column,
+      order: prev.column === column && prev.order === "ASC" ? "DESC" : "ASC",
+    }));
+  };
 
   return (
     <>
@@ -22,11 +29,31 @@ export const RankedCryptoTable = ({ crypto, currencies }) => {
         <table>
           <thead>
             <tr>
-              <th>Rank</th>
-              <th>ID</th>
-              <th>Symbol</th>
-              <th>Price</th>
-              <th>24hr Change</th>
+              <th>
+                <button type="button" onClick={() => handleSort("rank")}>
+                  Rank
+                </button>
+              </th>
+              <th>
+                <button type="button" onClick={() => handleSort("id")}>
+                  ID
+                </button>
+              </th>
+              <th>
+                <button type="button" onClick={() => handleSort("symbol")}>
+                  Symbol
+                </button>
+              </th>
+              <th>
+                <button type="button" onClick={() => handleSort("price")}>
+                  Price
+                </button>
+              </th>
+              <th>
+                <button type="button" onClick={() => handleSort("price")}>
+                  24hr Change
+                </button>
+              </th>
             </tr>
           </thead>
           <tbody>
