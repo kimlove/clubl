@@ -47,6 +47,7 @@ header h3 {
   margin: 2em auto;
   border-radius: 0.5em;
   overflow: hidden;
+  box-shadow: 0 0 3em rgba(0, 0, 0, 0.05);
 }
 
 /* table headers */
@@ -140,4 +141,12 @@ header h3 {
 
 .top-crypto td.change {
   text-align: right;
+}
+
+.top-crypto td.change--pos {
+  color: #090;
+}
+
+.top-crypto td.change--neg {
+  color: #c00;
 }

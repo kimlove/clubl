@@ -124,7 +124,12 @@ export const RankedCryptoTable = ({ crypto, currencies }) => {
                       </li>
                     </ul>
                   </td>
-                  <td className="change">
+
+                  <td
+                    className={`change ${
+                      row.changePercent24Hr > 0 ? "change--pos" : "change--neg"
+                    }`}
+                  >
                     {parseFloat(row.changePercent24Hr).toFixed(2)}%
                   </td>
                 </tr>
