@@ -14,8 +14,10 @@ export const App = () => {
     const fetchData = async () => {
       try {
         const cryptoRes = await fetch(cryptoUrl);
+        const currencyRes = await fetch(currencyUrl);
 
         setCrypto(await cryptoRes.json());
+        setCurrencies(await currencyRes.json());
       } catch (err) {
         console.error(err);
       }
@@ -28,6 +30,7 @@ export const App = () => {
     <main>
       <h3>Display top 100 Crypto Currencies</h3>
       <pre>{JSON.stringify(crypto, null, 2)}</pre>
+      <pre>{JSON.stringify(currencies, null, 2)}</pre>
     </main>
   );
 };
