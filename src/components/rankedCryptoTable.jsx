@@ -8,6 +8,7 @@ export const RankedCryptoTable = ({ crypto, currencies }) => {
             <th>ID</th>
             <th>Symbol</th>
             <th>Price</th>
+            <th>24hr Change</th>
           </tr>
         </thead>
         <tbody>
@@ -22,6 +23,7 @@ export const RankedCryptoTable = ({ crypto, currencies }) => {
                   </a>
                 </td>
                 <td>US$ {row.priceUsd}</td>
+                <td>{row.changePercent24Hr}%</td>
               </tr>
             );
           })}
