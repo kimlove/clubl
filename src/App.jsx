@@ -12,13 +12,22 @@ export const App = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      console.log("Fetch Data:");
-      console.log("cryptoUrl", cryptoUrl);
-      console.log("currencyUrl", currencyUrl);
+      try {
+        const cryptoRes = await fetch(cryptoUrl);
+
+        setCrypto(await cryptoRes.json());
+      } catch (err) {
+        console.error(err);
+      }
     };
 
     fetchData();
   }, []);
 
-  return <main>Display top 100 Crypto Currencies</main>;
+  return (
+    <main>
+      <h3>Display top 100 Crypto Currencies</h3>
+      <pre>{JSON.stringify(crypto, null, 2)}</pre>
+    </main>
+  );
 };
