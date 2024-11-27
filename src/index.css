@@ -22,3 +22,122 @@ body {
   padding: 1em;
   min-width: 320px;
 }
+
+/* These styles are a bit scrappy -- */
+
+/* style basic header */
+header {
+  background: #222;
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+  border-radius: 1em;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.1);
+}
+
+header h3 {
+  margin: 0;
+}
+
+/* style results table */
+
+.top-crypto {
+  width: 100%;
+  max-width: 50em;
+  margin: 2em auto;
+  border-radius: 0.5em;
+  overflow: hidden;
+}
+
+/* table headers */
+.top-crypto th button {
+  background: #222;
+  padding: 1em;
+  color: #fff;
+  font-weight: bold;
+  width: 100%;
+  font-size: 0.9em;
+  cursor: pointer;
+  border: none;
+}
+
+.top-crypto th button span {
+  padding-left: 0.5em;
+}
+
+.top-crypto th {
+  width: 16.7%;
+  white-space: nowrap;
+}
+.top-crypto th button {
+  text-align: left;
+}
+
+.top-crypto th.price {
+  width: 33%;
+}
+
+.top-crypto th.price button {
+  text-align: center;
+}
+
+.top-crypto th.change button {
+  text-align: center;
+}
+
+.top-crypto th button .icon {
+  padding-left: 0.5em;
+}
+
+.top-crypto th button:hover {
+  background: #555;
+}
+
+/* table content styles */
+
+.top-crypto a {
+  font-weight: bold;
+  text-decoration: none;
+  color: rgb(0, 114, 175);
+}
+
+.top-crypto a:hover {
+  text-decoration: underline;
+  color: rgb(8, 146, 220);
+}
+
+.top-crypto .usd-price {
+  text-align: center;
+  margin: 0 0 0.25em;
+}
+
+.top-crypto tr:nth-child(2n) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.top-crypto td {
+  padding: 0.5em;
+  vertical-align: middle;
+}
+
+.top-crypto .converted-currencies {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5em;
+  border-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.75em;
+}
+
+.top-crypto .converted-currencies li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0 0.25em;
+}
+
+.top-crypto td.change {
+  text-align: right;
+}

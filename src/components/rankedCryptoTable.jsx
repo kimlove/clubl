@@ -26,10 +26,10 @@ export const RankedCryptoTable = ({ crypto, currencies }) => {
   return (
     <>
       {sortedCrypto ? (
-        <table>
+        <table className="top-crypto" cellSpacing={0} cellPadding={0}>
           <thead>
             <tr>
-              <th>
+              <th className="rank">
                 <button type="button" onClick={() => handleSort("rank")}>
                   Rank
                   <span className="arrow">
@@ -41,7 +41,7 @@ export const RankedCryptoTable = ({ crypto, currencies }) => {
                   </span>
                 </button>
               </th>
-              <th>
+              <th className="id">
                 <button type="button" onClick={() => handleSort("id")}>
                   ID
                   <span className="arrow">
@@ -53,7 +53,7 @@ export const RankedCryptoTable = ({ crypto, currencies }) => {
                   </span>
                 </button>
               </th>
-              <th>
+              <th className="symbol">
                 <button type="button" onClick={() => handleSort("symbol")}>
                   Symbol
                   <span className="arrow">
@@ -65,7 +65,7 @@ export const RankedCryptoTable = ({ crypto, currencies }) => {
                   </span>
                 </button>
               </th>
-              <th>
+              <th className="price">
                 <button type="button" onClick={() => handleSort("price")}>
                   Price
                   <span className="arrow">
@@ -77,7 +77,7 @@ export const RankedCryptoTable = ({ crypto, currencies }) => {
                   </span>
                 </button>
               </th>
-              <th>
+              <th className="change">
                 <button
                   type="button"
                   onClick={() => handleSort("changePercent24Hr")}
@@ -106,16 +106,27 @@ export const RankedCryptoTable = ({ crypto, currencies }) => {
                     </a>
                   </td>
                   <td>
-                    <div>
+                    <div className="usd-price">
                       <strong>US$ {parseFloat(row.priceUsd).toFixed(2)}</strong>
                     </div>
-                    <ul>
-                      <li>GBP: {(row.priceUsd * GBP).toFixed(2)}</li>
-                      <li>EUR: {(row.priceUsd * EUR).toFixed(2)}</li>
-                      <li>AED: {(row.priceUsd * AED).toFixed(2)}</li>
+                    <ul className="converted-currencies">
+                      <li>
+                        <strong>GBP</strong>
+                        <span>{(row.priceUsd * GBP).toFixed(2)}</span>
+                      </li>
+                      <li>
+                        <strong>EUR</strong>
+                        <span>{(row.priceUsd * EUR).toFixed(2)}</span>
+                      </li>
+                      <li>
+                        <strong>AED</strong>
+                        <span>{(row.priceUsd * AED).toFixed(2)}</span>
+                      </li>
                     </ul>
                   </td>
-                  <td>{parseFloat(row.changePercent24Hr).toFixed(2)}%</td>
+                  <td className="change">
+                    {parseFloat(row.changePercent24Hr).toFixed(2)}%
+                  </td>
                 </tr>
               );
             })}

@@ -54,7 +54,9 @@ export const App = () => {
 
   return (
     <main>
-      <h3>Display top 100 Crypto Currencies</h3>
+      <header>
+        <h3>Displaying the Top 25 Crypto Currencies</h3>
+      </header>
 
       {crypto && currencies ? (
         <RankedCryptoTable crypto={crypto} currencies={currencies} />
