@@ -13,8 +13,16 @@ export const App = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const cryptoRes = await fetch(cryptoUrl);
-        const currencyRes = await fetch(currencyUrl);
+        // fetch both URLs at the same time
+        const [cryptoRes, currencyRes] = await Promise.all([
+          fetch(cryptoUrl),
+          fetch(currencyUrl),
+        ]);
+
+        // check both responses are "ok" (i.e. 200)
+        if (!cryptoRes.ok || !currencyRes.ok) {
+          throw new Error("Failed to fetch one or more resources");
+        }
 
         setCrypto(await cryptoRes.json());
         setCurrencies(await currencyRes.json());
