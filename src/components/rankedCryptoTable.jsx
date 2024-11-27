@@ -7,6 +7,7 @@ export const RankedCryptoTable = ({ crypto, currencies }) => {
             <th>Rank</th>
             <th>ID</th>
             <th>Symbol</th>
+            <th>Price</th>
           </tr>
         </thead>
         <tbody>
@@ -15,7 +16,12 @@ export const RankedCryptoTable = ({ crypto, currencies }) => {
               <tr key={row.symbol}>
                 <td>{row.rank}</td>
                 <td>{row.id}</td>
-                <td>{row.symbol}</td>
+                <td>
+                  <a href={row.explorer} target="_blank">
+                    {row.symbol}
+                  </a>
+                </td>
+                <td>US$ {row.priceUsd}</td>
               </tr>
             );
           })}
