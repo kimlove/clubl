@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+import { RankedCryptoTable } from "./components/rankedCryptoTable";
+
 // settings like this normally better in a config object or populated via .env vars
 // Inline these for now
 const cryptoUrl = "https://api.coincap.io/v2/assets";
@@ -53,8 +55,10 @@ export const App = () => {
   return (
     <main>
       <h3>Display top 100 Crypto Currencies</h3>
-      <pre>{JSON.stringify(crypto, null, 2)}</pre>
-      <pre>{JSON.stringify(currencies, null, 2)}</pre>
+
+      {crypto && currencies ? (
+        <RankedCryptoTable crypto={crypto} currencies={currencies} />
+      ) : null}
     </main>
   );
 };
