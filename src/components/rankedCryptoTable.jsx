@@ -106,14 +106,16 @@ export const RankedCryptoTable = ({ crypto, currencies }) => {
                     </a>
                   </td>
                   <td>
-                    <div>US$ {row.priceUsd}</div>
+                    <div>
+                      <strong>US$ {parseFloat(row.priceUsd).toFixed(2)}</strong>
+                    </div>
                     <ul>
-                      <li>GBP: {row.priceUsd * GBP}</li>
-                      <li>EUR: {row.priceUsd * EUR}</li>
-                      <li>AED: {row.priceUsd * AED}</li>
+                      <li>GBP: {(row.priceUsd * GBP).toFixed(2)}</li>
+                      <li>EUR: {(row.priceUsd * EUR).toFixed(2)}</li>
+                      <li>AED: {(row.priceUsd * AED).toFixed(2)}</li>
                     </ul>
                   </td>
-                  <td>{row.changePercent24Hr}%</td>
+                  <td>{parseFloat(row.changePercent24Hr).toFixed(2)}%</td>
                 </tr>
               );
             })}
